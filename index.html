@@ -1,97 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Privacy Notice – Photo Contest</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Photo Contest Landing Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
       line-height: 1.6;
       color: #333;
+      margin: 0;
     }
-
-    .container {
-      max-width: 700px;
-      margin: auto;
-      padding: 2em;
-    }
-
-    h1 {
-      color: #2a2a2a;
-    }
-
-    h2 {
-      margin-top: 1.5em;
-      color: #444;
-    }
-
-    a {
-      color: #0066cc;
-    }
-
     .banner {
       display: block;
       width: 100%;
       height: auto;
+      object-fit: cover;
+    }
+    @media (max-width: 768px) {
+      .banner {
+        height: 110px;
+        object-fit: cover;
+      }
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 2em;
+      text-align: center;
+    }
+    h1 {
+      color: #2a2a2a;
+      margin-bottom: 0.5em;
+    }
+    p {
+      margin-bottom: 1.5em;
+      font-size: 1.1em;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      flex-wrap: wrap;
+      margin-bottom: 2em;
+    }
+    .btn {
+      background-color: #0066cc;
+      color: white;
+      text-decoration: none;
+      padding: 0.75em 1.5em;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      min-width: 150px;
+    }
+    .btn:hover {
+      background-color: #004a99;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+      padding-bottom: 1em;
     }
   </style>
 </head>
 <body>
 
   <!-- Full-width banner -->
-  <img src="images/Banner-image.jpg" alt="Banner" class="banner" />
+  <img src="../images/bt-banner.png" alt="Photo Contest Banner" class="banner" />
 
-  <!-- Main content container -->
+  <!-- Main content -->
   <div class="container">
-    <h1>Privacy Notice – Photo Contest</h1>
+    <h1>Welcome to the Photo Contest!</h1>
+    <p>Join us in celebrating creativity and community by submitting your best photos. Check out the rules and privacy details before participating.</p>
+    
+    <div class="btn-group">
+      <a href="privacy.html" class="btn" aria-label="View Privacy Notice">Privacy Notice</a>
+      <a href="faq.html" class="btn" aria-label="Read Frequently Asked Questions">FAQs</a>
+    </div>
 
-    <p>This privacy notice explains how we collect, use, and protect your personal data when you participate in our photo contest.</p>
-
-    <h2>1. Who is responsible for your data?</h2>
-    <p>This contest is organized by [Your Name or Organization]. You can contact us at <strong>[your@email.com]</strong> with any questions regarding your data.</p>
-
-    <h2>2. What data do we collect?</h2>
-    <ul>
-      <li>Your uploaded image(s)</li>
-      <li>Your name and/or email address (if provided)</li>
-      <li>Any additional information you include in the form</li>
-    </ul>
-
-    <h2>3. Why do we collect this data?</h2>
-    <p>We collect your data to:</p>
-    <ul>
-      <li>Run the photo contest</li>
-      <li>Showcase selected entries (if applicable)</li>
-      <li>Contact winners, if necessary</li>
-    </ul>
-
-    <h2>4. Legal basis for processing</h2>
-    <p>We rely on your <strong>explicit consent</strong> to collect and use your personal data for this contest. You may withdraw this consent at any time by contacting us.</p>
-
-    <h2>5. How is your data stored?</h2>
-    <p>All data is securely stored via Tally.so and associated cloud services, in compliance with GDPR. Only the contest organizer has access to this data.</p>
-
-    <h2>6. How long do we keep your data?</h2>
-    <p>Your data will be deleted within <strong>60 days after the contest ends</strong>, unless you withdraw your consent earlier.</p>
-
-    <h2>7. Your rights</h2>
-    <p>Under the GDPR, you have the right to:</p>
-    <ul>
-      <li>Access the data we hold about you</li>
-      <li>Correct any inaccuracies</li>
-      <li>Request deletion of your data</li>
-      <li>Withdraw consent at any time</li>
-      <li>Lodge a complaint with a supervisory authority</li>
-    </ul>
-
-    <h2>8. Contact</h2>
-    <p>To exercise your rights or ask questions about this policy, please contact: <strong>[your@email.com]</strong>.</p>
-
-    <p>Last updated: May 22, 2025</p>
+    <p>Have questions? <a href="mailto:sh-ne-nl-bettertogether@cevalogistics.com">Contact us anytime</a>.</p>
   </div>
+
+  <footer>
+    &copy; 2025 Your Organization Name. All rights reserved.
+  </footer>
 
 </body>
 </html>
