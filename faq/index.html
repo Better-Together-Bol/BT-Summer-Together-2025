@@ -6,50 +6,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
-      font-family: Aptos, sans-serif;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      /* removed max-width, margin, padding */
+    }
+    .container {
       max-width: 700px;
       margin: auto;
       padding: 2em;
-      line-height: 1.6;
-      color: #333;
     }
     h1 {
       color: #2a2a2a;
     }
-    h2 {
-      margin-top: 1.5em;
-      color: #444;
-    }
     a {
       color: #0066cc;
     }
-    table {
-      border-collapse: collapse;
-      width: 100%;
+    .faq-item {
+      margin-bottom: 1em;
+      cursor: pointer;
     }
-    td {
-      border: none; /* Makes lines transparent */
-      padding: 12px;
-      vertical-align: top;
-    }
-    td:first-child {
+    .question {
       font-weight: bold;
-      width: 150px;
+      background: #f0f0f0;
+      padding: 10px 15px;
+      border-radius: 5px;
+      user-select: none;
+      position: relative;
     }
-
-    .banner {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-
-  @media (max-width: 768px) {
-    .banner {
-      height: 110px;
-      object-fit: cover; /* Crop the image to fit container */
+    .question::after {
+      content: '+';
+      position: absolute;
+      right: 20px;
+      font-weight: bold;
+      transition: transform 0.3s ease;
     }
-  }
+    .faq-item.open .question::after {
+      content: '-';
+      transform: rotate(180deg);
+    }
+    .answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 15px;
+      background: #fafafa;
+      border-left: 3px solid #0066cc;
+      border-radius: 0 5px 5px 0;
+    }
+    .faq-item.open .answer {
+      max-height: 500px; /* enough height to show answer */
+      padding: 10px 15px;
+    }
+    .banner {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    @media (max-width: 768px) {
+      .banner {
+        height: 110px;
+        object-fit: cover;
+      }
+    }
   </style>
 </head>
 <body>
@@ -57,25 +77,32 @@
   <!-- Full-width banner -->
   <img src="../images/bt-banner.png" alt="Banner" class="banner" />
   
-  <h1>Frequently asked questions</h1>
+  <!-- Container limits width & padding for content only -->
+  <div class="container">
+    <h1>Frequently asked questions</h1>
 
-  <p>You'll find the answers to the most common questions below!.</p>
+    <p>You'll find the answers to the most common questions below!.</p>
 
-  <p>Haven't found what you're looking for? 
-    <a href="mailto:sh-ne-nl-bettertogether@cevalogistics.com?subject=Question%20about%20Summer%20Together">
-      Shoot us a message
-    </a>
-  </p>
+    <p>Haven't found what you're looking for? 
+      <a href="mailto:sh-ne-nl-bettertogether@cevalogistics.com?subject=Question%20about%20Summer%20Together">
+        Shoot us a message
+      </a>
+    </p>
 
-  <table>
-    <tr>
-      <td>Q1</td>
-      <td>How can I participate?</td>
-    </tr>
-    <tr>
-      <td>A1</td>
-      <td>You can participate by scanning the QR code on the "Summer Together" card! This will bring you to a Linktree page where you can participate in the individual challenges.</td>
-    </tr>
-  </table>
+    <div class="faq-item">
+      <div class="question">How can I participate?</div>
+      <div class="answer">You can participate by scanning the QR code on the "Summer Together" card! This will bring you to a Linktree page where you can participate in the individual challenges.</div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.faq-item .question').forEach(question => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        faqItem.classList.toggle('open');
+      });
+    });
+  </script>
+
 </body>
 </html>
