@@ -76,6 +76,9 @@
       overflow: hidden;
       transition: max-height 0.4s ease;
     }
+    #tally-container.open {
+      max-height: none;
+    }
     #toggle-tally {
       cursor: pointer;
       background: #3159ed;
@@ -88,16 +91,14 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: background 0.3s ease, transform 0.2s ease;
     }
-
-  #toggle-tally:hover {
-    background: #004a99;
-    transform: translateY(-2px);
-  }
-
-  #toggle-tally:active {
-    background: #004f8c;
-    transform: translateY(0);
-  }
+    #toggle-tally:hover {
+      background: #004a99;
+      transform: translateY(-2px);
+    }
+    #toggle-tally:active {
+      background: #004f8c;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -110,10 +111,10 @@
 
     <p>You'll find the answers to the most common questions below!</p>
 
-  <p>Haven't found what you're looking for?</p>
+    <p>Haven't found what you're looking for?</p>
     
     <p>
-      <button id="toggle-tally" style="cursor:pointer; background:#0066cc; color:#fff; border:none; padding:8px 15px; border-radius:4px;">
+      <button id="toggle-tally">
         👋 Shoot us a message
       </button>
     </p>
@@ -137,7 +138,6 @@
     </div>
   </div>
 
-
   <script>
     // Expand/collapse FAQ
     document.querySelectorAll('.faq-item .question').forEach(question => {
@@ -155,16 +155,18 @@
       });
     });
 
-    // Toggle Tally form visibility
+    // Toggle Tally form visibility using class toggle
     document.addEventListener('DOMContentLoaded', () => {
       const toggleBtn = document.getElementById('toggle-tally');
       const tallyContainer = document.getElementById('tally-container');
 
       toggleBtn.addEventListener('click', () => {
-        if (tallyContainer.style.maxHeight && tallyContainer.style.maxHeight !== '0px') {
+        tallyContainer.classList.toggle('open');
+
+        if (!tallyContainer.classList.contains('open')) {
           tallyContainer.style.maxHeight = '0px';
         } else {
-          tallyContainer.style.maxHeight = tallyContainer.scrollHeight + 'px';
+          tallyContainer.style.maxHeight = null; // Let CSS max-height:none work
         }
       });
     });
