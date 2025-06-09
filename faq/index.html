@@ -9,7 +9,8 @@
       font-family: Arial, sans-serif;
       line-height: 1.6;
       color: #333;
-      /* removed max-width, margin, padding */
+      margin: 0
+      padding: 0
     }
     .container {
       max-width: 700px;
@@ -48,14 +49,13 @@
     .answer {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease;
+      transition: max-height 0.4s ease;
       padding: 0 15px;
       background: #fafafa;
       border-left: 3px solid #0066cc;
       border-radius: 0 5px 5px 0;
     }
     .faq-item.open .answer {
-      max-height: 500px; /* enough height to show answer */
       padding: 10px 15px;
     }
     .banner {
@@ -98,10 +98,20 @@
   <script>
     document.querySelectorAll('.faq-item .question').forEach(question => {
       question.addEventListener('click', () => {
-        const faqItem = question.parentElement;
-        faqItem.classList.toggle('open');
-      });
-    });
+    const faqItem = question.parentElement;
+    const answer = faqItem.querySelector('.answer');
+
+    if (faqItem.classList.contains('open')) {
+      // Collapse
+      answer.style.maxHeight = null;
+      faqItem.classList.remove('open');
+    } else {
+      // Expand
+      answer.style.maxHeight = answer.scrollHeight + "px";
+      faqItem.classList.add('open');
+    }
+  });
+});
   </script>
 
 </body>
