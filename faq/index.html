@@ -36,9 +36,27 @@
       font-weight: bold;
       width: 150px;
     }
+
+    .banner {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .banner {
+      height: 110px;
+      object-fit: cover; /* Crop the image to fit container */
+    }
+  }
   </style>
 </head>
 <body>
+
+  <!-- Full-width banner -->
+  <img src="../images/bt-banner.png" alt="Banner" class="banner" />
+  
   <h1>Frequently asked questions</h1>
 
   <p>You'll find the answers to the most common questions below!.</p>
