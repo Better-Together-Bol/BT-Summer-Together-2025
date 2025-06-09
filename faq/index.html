@@ -4,73 +4,76 @@
   <meta charset="UTF-8" />
   <title>Frequently asked questions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 700px;
-      margin: auto;
-      padding: 2em;
-    }
-    h1 {
-      color: #2a2a2a;
-    }
-    a {
-      color: #0066cc;
-    }
-    .faq-item {
-      margin-bottom: 1em;
-      cursor: pointer;
-    }
-    .question {
-      font-weight: bold;
-      background: #f0f0f0;
-      padding: 10px 15px;
-      border-radius: 5px;
-      user-select: none;
-      position: relative;
-    }
-    .question::after {
-      content: '+';
-      position: absolute;
-      right: 20px;
-      font-weight: bold;
-      transition: transform 0.3s ease;
-    }
-    .faq-item.open .question::after {
-      content: '-';
-      transform: rotate(180deg);
-    }
-    .answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-      padding: 0 15px;
-      background: #fafafa;
-      border-left: 3px solid #0066cc;
-      border-radius: 0 5px 5px 0;
-    }
-    .faq-item.open .answer {
-      padding: 10px 15px;
-    }
-    .banner {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-    @media (max-width: 768px) {
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 700px;
+        margin: auto;
+        padding: 2em;
+      }
+      h1 {
+        color: #2a2a2a;
+      }
+      a {
+        color: #0066cc;
+      }
+      .faq-item {
+        margin-bottom: 1em;
+        cursor: pointer;
+      }
+      .question {
+        font-weight: bold;
+        background: #f0f0f0;
+        padding: 10px 15px;
+        border-radius: 5px;
+        user-select: none;
+        position: relative;
+      }
+      .question::after {
+        content: '+';
+        position: absolute;
+        right: 20px;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+      }
+      .faq-item.open .question::after {
+        content: '-';
+        transform: rotate(180deg);
+      }
+      .answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        padding: 0 15px;
+        background: #fafafa;
+        border-left: 3px solid #0066cc;
+        border-radius: 0 5px 5px 0;
+      }
+      .faq-item.open .answer {
+        padding: 10px 15px;
+      }
       .banner {
-        height: 110px;
+        display: block;
+        width: 100%;
+        height: auto;
         object-fit: cover;
       }
-    }
-  </style>
+      @media (max-width: 768px) {
+        .banner {
+          height: 110px;
+          object-fit: cover;
+        }
+      }
+    </style>
+  <script 
+    async src="https://tally.so/widgets/embed.js">
+  </script>
 </head>
 <body>
 
@@ -83,17 +86,11 @@
 
     <p>You'll find the answers to the most common questions below!.</p>
 
-    <p>Haven't found what you're looking for? Fill in the form below to send us a message:</p>
-
-    <form action="mailto:sh-ne-nl-bettertogether@cevalogistics.com?subject=Question%20about%20Summer%20Together" method="post" enctype="text/plain" style="max-width: 400px;">
-      <label for="name">Your name:</label><br />
-      <input type="text" id="name" name="Name" required style="width: 100%; padding: 5px; margin-bottom: 10px;" /><br />
-    
-      <label for="message">Your message:</label><br />
-      <textarea id="message" name="Message" rows="4" required style="width: 100%; padding: 5px; margin-bottom: 10px;"></textarea><br />
-    
-      <button type="submit" style="padding: 8px 15px; cursor: pointer;">Send Email</button>
-    </form>
+    <p>Haven't found what you're looking for?  
+  <button data-tally-open="3ypEk4" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" style="cursor:pointer; background:#0066cc; color:#fff; border:none; padding:8px 15px; border-radius:4px;">
+    Shoot us a message
+  </button>
+</p>
 
     <!--
     <p>Haven't found what you're looking for? 
