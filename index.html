@@ -58,28 +58,21 @@
     .btn:hover {
       background-color: #004a99;
     }
+    .countdown {
+      font-size: 2em;
+      font-weight: bold;
+      background-color: #3159ed;
+      color: white;
+      display: inline-block;
+      padding: 1em 2em;
+      border-radius: 10px;
+      margin: 1.5em auto;
+    }
     footer {
       text-align: center;
       font-size: 0.9em;
       color: #666;
       padding-bottom: 1em;
-    }
-    /* Spinner animation */
-    #spinner {
-      margin: 2em auto;
-    }
-    .loader {
-      border: 4px solid #f3f3f3;
-      border-top: 4px solid #3159ed;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: auto;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
@@ -91,47 +84,38 @@
   <!-- Main content -->
   <div class="container">
     <h1>Welcome to Summer Together!</h1>
-    <p><b>Join your team</b> and compete against your colleagues! Collect the most points and win the <b>grand prize</b>!</p>
+    <p>Join <b>your team</b> and compete against your colleagues! Collect the most points and win the <b>grand prize</b>!</p>
 
-    <!-- Countdown Timer with Spinner -->
-<div id="countdown-wrapper" style="margin: 2em auto; text-align: center;">
-  <!-- Spinner -->
-  <div id="spinner">
-    <div style="border: 4px solid #f3f3f3; border-top: 4px solid #3159ed; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: auto;"></div>
-  </div>
+    <!-- Custom Countdown Timer -->
+    <div id="countdown" class="countdown">Loading timer...</div>
 
-  <!-- Countdown -->
-  <a href="https://logwork.com/countdown-timer"
-   class="countdown-timer"
-   style="pointer-events: none; cursor: default;"
-   data-timezone="Europe/Amsterdam"
-   data-date="2025-06-17 07:00"
-   data-background="#3159ed"
-   data-digitscolor="#ffffff">
-   <span style="display:none;">Loading timer...</span>
-  </a>
-  </div>
-  
-  <!-- Spinner animation -->
-  <style>
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  </style>
-  
-  <!-- Load the countdown -->
-  <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-  
-  <!-- Remove spinner once countdown is loaded -->
-  <script>
-    window.addEventListener('load', function () {
-      setTimeout(() => {
-        const spinner = document.getElementById('spinner');
-        if (spinner) spinner.style.display = 'none';
-      }, 1000); // Add more delay if needed
-    });
-  </script>
+    <!-- Timer Script -->
+    <script>
+      // Target date (UTC+2 = Amsterdam in June)
+      const targetDate = new Date('2025-06-17T05:00:00Z'); // 07:00 Amsterdam time
+
+      function updateCountdown() {
+        const now = new Date();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+          document.getElementById('countdown').textContent = "The countdown has ended!";
+          clearInterval(timerInterval);
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById('countdown').textContent =
+          `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+
+      const timerInterval = setInterval(updateCountdown, 1000);
+      updateCountdown();
+    </script>
 
     <div class="btn-group">
       <a href="faq" class="btn" aria-label="Read Frequently Asked Questions">FAQs</a>
