@@ -128,12 +128,55 @@
         font-size: 0.9em;
       }
     }
-    .help-section {
-    background: #f8f9ff;
-    padding: 1.5em;
-    border-radius: 8px;
-    margin-top: 2em;
-    }
+  .help-section {
+  position: relative;
+  background-color: #f9f9f9;
+  padding: 1.5em 1.5em 1.5em 3.5em; /* space for icon on left */
+  border-radius: 8px;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 2em;
+}
+
+.help-section svg {
+  position: absolute;
+  top: 1em;    /* top corner */
+  left: 1em;   /* left corner */
+  width: 24px;
+  height: 24px;
+  fill: #3159ed; /* blue color */
+}
+
+.help-header p {
+  margin: 0 0 1em 0;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+}
+
+.btn {
+  background-color: #3159ed;
+  color: white;
+  text-decoration: none;
+  padding: 0.75em 1.5em;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  min-width: 150px;
+}
+
+.btn:hover {
+  background-color: #004a99;
+}
+
+
   </style>
 </head>
 <body>
@@ -172,15 +215,29 @@
       <a href="../downloads/Kickoff-Summer-Together.ics/" class="btn" aria-label="Add to my calendar">Add to my calendar</a>
     </div> -->
 
-    <div class="help-section">
-    <p>Got a question? Check out the FAQs</p>
-    <div class="btn-group">
-      <a href="faq" class="btn" aria-label="Read Frequently Asked Questions">FAQs</a>
-    </div>
-    <p>Still need help? <a href="#tally-open=3ypEk4&tally-hide-title=1&tally-emoji-text=👋&tally-emoji-animation=wave&tally-auto-close=3000">Contact us!</a></p>
-    </div>
+<div class="help-section" role="region" aria-label="Help section">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path fill-rule="evenodd" d="M11 11H9v-.148c0-.876.306-1.499 1-1.852.385-.195 1-.568 1-1a1.001 1.001 0 00-2 0H7c0-1.654 1.346-3 3-3s3 1 3 3-2 2.165-2 3zm-2 4h2v-2H9v2zm1-13a8 8 0 100 16 8 8 0 000-16z" />
+  </svg>
 
-  <footer>Better Together 2025</footer>
+  <div class="help-header">
+    <p>Got a question? Check out the FAQs</p>
+  </div>
+  
+  <div class="btn-group">
+    <a href="faq" class="btn" aria-label="Read Frequently Asked Questions">Frequently asked questions</a>
+  </div>
+  
+  <p>Still need help? <a href="#tally-open=3ypEk4&tally-hide-title=1&tally-emoji-text=👋&tally-emoji-animation=wave&tally-auto-close=3000">Contact us!</a></p>
+</div>
+
+
+
 
   <script>
     const targetDate = new Date('2025-06-17T05:00:00Z'); // 07:00 Amsterdam time (UTC+2)
