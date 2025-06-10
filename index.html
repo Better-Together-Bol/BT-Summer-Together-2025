@@ -46,7 +46,6 @@
       margin-bottom: 2em;
     }
     .btn {
-      /* background-color: #0066cc; */
       background-color: #3159ed;
       color: white;
       text-decoration: none;
@@ -65,24 +64,58 @@
       color: #666;
       padding-bottom: 1em;
     }
+    /* Spinner animation */
+    #spinner {
+      margin: 2em auto;
+    }
+    .loader {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3159ed;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
 
   <!-- Full-width banner -->
-  <img src="images/bt-banner.png" alt="Summer Together Banner" class="banner" />
+  <img src="images/bt-banner.png" alt="Summer Together Team Challenge Banner" class="banner" />
 
   <!-- Main content -->
   <div class="container">
     <h1>Welcome to Summer Together!</h1>
     <p>Join <b>your team</b> and compete against your colleagues! Collect the most points and win the <b>grand prize</b>!</p>
 
-  <!-- Timer -->
-  <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-<a href="https://logwork.com/countdown-timer" class="countdown-timer" data-timezone="Europe/Amsterdam" data-date="2025-06-17 07:00" data-background="#3159ed" data-digitscolor="#ffffff"> </a>
-    
+    <!-- Countdown with spinner -->
+    <div id="countdown-wrapper">
+      <div id="spinner">
+        <div class="loader"></div>
+      </div>
+      <a href="https://logwork.com/countdown-timer" class="countdown-timer"
+         data-timezone="Europe/Amsterdam"
+         data-date="2025-06-17 07:00"
+         data-background="#3159ed"
+         data-digitscolor="#ffffff">
+      </a>
+    </div>
+    <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+    <script>
+      window.addEventListener('load', function () {
+        setTimeout(() => {
+          const spinner = document.getElementById('spinner');
+          if (spinner) spinner.style.display = 'none';
+        }, 1000); // Delay to ensure countdown renders
+      });
+    </script>
+
     <div class="btn-group">
-      <!-- <a href="privacy-notice" class="btn" aria-label="View Privacy Notice">Privacy Notice</a> -->
       <a href="faq" class="btn" aria-label="Read Frequently Asked Questions">FAQs</a>
     </div>
 
