@@ -31,6 +31,18 @@
         object-fit: cover;
       }
     }
+    .grandprize {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    @media (max-width: 768px) {
+      .grandprize {
+        height: 110px;
+        object-fit: cover;
+      }
+    }
     .container {
       max-width: 700px;
       margin: auto;
@@ -209,6 +221,8 @@
     <h1>Welcome to Summer Together!</h1>
     <p>Join <b>your team</b> and compete against your colleagues! Collect the most points and win the <b>grand prize</b>!</p>
 
+  <img src="images/grand-prize.png" alt="Summer Together Grand prize" class="grandprize" />
+    
     <h2>Summer Together starts in...</h2>
 
     <!-- Custom Countdown Timer -->
