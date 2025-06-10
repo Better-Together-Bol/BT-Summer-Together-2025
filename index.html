@@ -7,6 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
   <script async src="https://tally.so/widgets/embed.js"></script>
   <style>
+    :root {
+  --font-h1: 2.5em;
+  --font-h2: 1.8em;
+  --font-body: 1.1em;
+  --font-small: 0.9em;
+    }
     body {
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
@@ -32,19 +38,23 @@
       text-align: center;
     }
     h1 {
+      font-size: var(--font-h1);
       color: #2a2a2a;
       margin-bottom: 0.5em;
+      font-weight: 800;
     }
+    
     h2 {
+      font-size: var(--font-h2);
       font-weight: 600;
-      font-size: 1.8em;
       color: #2a2a2a;
       margin-bottom: 0.5em;
-      font-family: 'Inter', sans-serif;
     }
+    
     p {
+      font-size: var(--font-body);
       margin-bottom: 1.5em;
-      font-size: 1.1em;
+      line-height: 1.7;
     }
     .btn-group {
       display: flex;
@@ -118,6 +128,12 @@
         font-size: 0.9em;
       }
     }
+    .help-section {
+    background: #f8f9ff;
+    padding: 1.5em;
+    border-radius: 8px;
+    margin-top: 2em;
+    }
   </style>
 </head>
 <body>
@@ -156,14 +172,13 @@
       <a href="../downloads/Kickoff-Summer-Together.ics/" class="btn" aria-label="Add to my calendar">Add to my calendar</a>
     </div> -->
 
+    <div class="help-section">
     <p>Got a question? Check out the FAQs</p>
-    
     <div class="btn-group">
-      <a href="faq" class="btn" aria-label="Read Frequently Asked Questions">Frequently asked questions</a>
+      <a href="faq" class="btn" aria-label="Read Frequently Asked Questions">FAQs</a>
     </div>
-
-    <p>Haven't found what you're looking for? <a href="#tally-open=3ypEk4&tally-hide-title=1&tally-emoji-text=👋&tally-emoji-animation=wave&tally-auto-close=3000">Contact us!</a></p>
-  </div>
+    <p>Still need help? <a href="#tally-open=3ypEk4&tally-hide-title=1&tally-emoji-text=👋&tally-emoji-animation=wave&tally-auto-close=3000">Contact us!</a></p>
+    </div>
 
   <footer>Better Together 2025</footer>
 
