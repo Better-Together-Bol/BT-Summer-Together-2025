@@ -58,15 +58,26 @@
     .btn:hover {
       background-color: #004a99;
     }
+    /* Countdown styles */
     .countdown {
-      font-size: 2em;
-      font-weight: bold;
-      background-color: #3159ed;
-      color: white;
-      display: inline-block;
-      padding: 1em 2em;
-      border-radius: 10px;
+      font-size: 3.5em;
+      font-weight: 700;
+      color: #000;
       margin: 1.5em auto;
+      letter-spacing: 0.05em;
+      font-feature-settings: "tnum";
+      animation: pulse 2s infinite ease-in-out;
+      user-select: none;
+    }
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+      }
     }
     footer {
       text-align: center;
@@ -91,8 +102,7 @@
 
     <!-- Timer Script -->
     <script>
-      // Target date (UTC+2 = Amsterdam in June)
-      const targetDate = new Date('2025-06-17T05:00:00Z'); // 07:00 Amsterdam time
+      const targetDate = new Date('2025-06-17T05:00:00Z'); // 07:00 Amsterdam time (UTC+2)
 
       function updateCountdown() {
         const now = new Date();
