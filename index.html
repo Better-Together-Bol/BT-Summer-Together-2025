@@ -86,34 +86,51 @@
 <body>
 
   <!-- Full-width banner -->
-  <img src="images/bt-banner.png" alt="Summer Together Team Challenge Banner" class="banner" />
+  <img src="images/bt-banner.png" alt="Summer Together Banner" class="banner" />
 
   <!-- Main content -->
   <div class="container">
     <h1>Welcome to Summer Together!</h1>
-    <p>Join <b>your team</b> and compete against your colleagues! Collect the most points and win the <b>grand prize</b>!</p>
+    <p><b>Join your team</b> and compete against your colleagues! Collect the most points and win the <b>grand prize</b>!</p>
 
-    <!-- Countdown with spinner -->
-    <div id="countdown-wrapper">
-      <div id="spinner">
-        <div class="loader"></div>
-      </div>
-      <a href="https://logwork.com/countdown-timer" class="countdown-timer"
-         data-timezone="Europe/Amsterdam"
-         data-date="2025-06-17 07:00"
-         data-background="#3159ed"
-         data-digitscolor="#ffffff">
-      </a>
-    </div>
-    <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-    <script>
-      window.addEventListener('load', function () {
-        setTimeout(() => {
-          const spinner = document.getElementById('spinner');
-          if (spinner) spinner.style.display = 'none';
-        }, 1000); // Delay to ensure countdown renders
-      });
-    </script>
+    <!-- Countdown Timer with Spinner -->
+<div id="countdown-wrapper" style="margin: 2em auto; text-align: center;">
+  <!-- Spinner -->
+  <div id="spinner">
+    <div style="border: 4px solid #f3f3f3; border-top: 4px solid #3159ed; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: auto;"></div>
+  </div>
+
+  <!-- Countdown -->
+  <a href="https://logwork.com/countdown-timer"
+     class="countdown-timer"
+     data-timezone="Europe/Amsterdam"
+     data-date="2025-06-17 07:00"
+     data-background="#3159ed"
+     data-digitscolor="#ffffff">
+     Loading timer...
+  </a>
+  </div>
+  
+  <!-- Spinner animation -->
+  <style>
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  </style>
+  
+  <!-- Load the countdown -->
+  <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+  
+  <!-- Remove spinner once countdown is loaded -->
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(() => {
+        const spinner = document.getElementById('spinner');
+        if (spinner) spinner.style.display = 'none';
+      }, 1000); // Add more delay if needed
+    });
+  </script>
 
     <div class="btn-group">
       <a href="faq" class="btn" aria-label="Read Frequently Asked Questions">FAQs</a>
