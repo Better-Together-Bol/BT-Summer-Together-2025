@@ -5,7 +5,6 @@
   <title>BT Summer Together Treasure Hunt</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
-  <script async src="https://tally.so/widgets/embed.js"></script>
   <style>
     :root {
       --font-h1: 2.5em;
@@ -31,18 +30,6 @@
         object-fit: cover;
       }
     }
-    .grandprize {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-    @media (max-width: 768px) {
-      .grandprize {
-        height: 110px;
-        object-fit: cover;
-      }
-    }
     .container {
       max-width: 700px;
       margin: auto;
@@ -55,41 +42,17 @@
       margin-bottom: 0.5em;
       font-weight: 800;
     }
-    
     h2 {
       font-size: var(--font-h2);
       font-weight: 600;
       color: #2a2a2a;
       margin-bottom: 0.5em;
     }
-    
     p {
       font-size: var(--font-body);
       margin-bottom: 1.5em;
       line-height: 1.7;
     }
-    .btn-group {
-      display: flex;
-      justify-content: center;
-      gap: 1em;
-      flex-wrap: wrap;
-      margin-bottom: 2em;
-    }
-    .btn {
-      background-color: #3159ed;
-      color: white;
-      text-decoration: none;
-      padding: 0.75em 1.5em;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-      min-width: 150px;
-    }
-    .btn:hover {
-      background-color: #004a99;
-    }
-
-    /* Countdown container */
     .countdown {
       display: flex;
       justify-content: center;
@@ -97,7 +60,6 @@
       margin: 2em auto;
       user-select: none;
     }
-    /* Each time block */
     .time-block {
       display: flex;
       flex-direction: column;
@@ -118,14 +80,12 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
-
     footer {
       text-align: center;
       font-size: 0.9em;
       color: #666;
       padding-bottom: 1em;
     }
-
     @media (max-width: 400px) {
       .countdown {
         gap: 1em;
@@ -140,214 +100,176 @@
         font-size: 0.9em;
       }
     }
-    .help-section {
-      position: relative;
-      background-color: #f9f9f9;
-      padding: 1.5em 1.5em 1.5em 3.5em; /* space for icon on left */
-      border-radius: 8px;
-      color: #333;
-      font-family: 'Inter', sans-serif;
-      margin-bottom: 2em;
-    }
-
-    .help-section svg {
-      position: absolute;
-      top: 1em;    /* top corner */
-      left: 1em;   /* left corner */
-      width: 24px;
-      height: 24px;
-      fill: #3159ed; /* blue color */
-    }
-
-    .help-header p {
-      margin: 0 0 1em 0;
-      font-weight: 600;
-      font-size: 1.2em;
-    }
-
-    .btn-group {
-      display: flex;
-      justify-content: center;
-      gap: 1em;
-      flex-wrap: wrap;
-      margin-bottom: 1em;
-    }
-
-    .btn {
-      background-color: #3159ed;
-      color: white;
-      text-decoration: none;
-      padding: 0.75em 1.5em;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-      min-width: 150px;
-    }
-
-    .btn:hover {
-      background-color: #004a99;
-    }
-
-    @media (max-width: 480px) {
-      .help-section {
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
-        border-radius: 0;
-        padding-left: 3.5em;
-        box-sizing: border-box;
-      }
-    
-      h1 {
-        font-size: 1.8em;
-        line-height: 1.2;
-        margin-bottom: 0.4em;
-      }
-    
-      h2 {
-        font-size: 1.4em;
-        line-height: 1.3;
-        margin-bottom: 0.4em;
-      }
-    }
-    hr.solid {
-      border-top: 3px solid #bbb;
-    }
   </style>
 </head>
 <body>
 
   <!-- Full-width banner -->
-    <img src="../images/bt-banner.png" alt="Summer Together Banner" class="banner" />
-    
-    <div class="container">
-      <!-- JavaScript will dynamically populate this section based on the date -->
-    </div>
-
-  
-  <!-- 
   <img src="../images/bt-banner.png" alt="Summer Together Banner" class="banner" />
 
-  
-  <div class="container">
-    <h1>Submit the Treasure Hunt sentence!</h1>
-    
-    <p>This page becomes available in:</p>
-    
-    <div id="countdown" class="countdown" aria-live="polite" aria-label="Countdown timer">
-    </div>
-    
-    <br>
+  <div class="container"></div>
 
-    <!--  
-    <p>Time left to submit the Treasure Hunt answer:</p>
-
-    <div id="countdown" class="countdown" aria-live="polite" aria-label="Countdown timer">
-      <div class="time-block">
-        <div id="hours" class="time-value">--</div>
-        <div class="time-label">Hours</div>
-      </div>
-      <div class="time-block">
-        <div id="minutes" class="time-value">--</div>
-        <div class="time-label">Minutes</div>
-      </div>
-      <div class="time-block">
-        <div id="seconds" class="time-value">--</div>
-        <div class="time-label">Seconds</div>
-      </div>
-    </div>
-
-    <iframe data-tally-src="https://tally.so/embed/3yppO0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="100" frameborder="0" marginheight="0" marginwidth="0" title="BT Summer Together - Treasure Hunt submission"></iframe>
-    <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-
-    
-  </div>
-  -->
-
-  
   <script>
-  const firstDeadline = new Date('2025-06-23T07:00:00Z'); // 09:00 Amsterdam
-  const finalDeadline = new Date('2025-06-24T00:00:00Z'); // 02:00 Amsterdam
+    const firstDeadline = new Date('2025-06-23T07:00:00Z'); // 09:00 Amsterdam
+    const finalDeadline = new Date('2025-06-24T00:00:00Z'); // 02:00 Amsterdam
 
-  const container = document.querySelector('.container');
+    const container = document.querySelector('.container');
 
-  function updateCountdown() {
-    const now = new Date();
-
-    if (now >= finalDeadline) {
-      container.innerHTML = `
-        <h1>Submit the Treasure Hunt sentence!</h1>
-        <div style="font-size:2em; font-weight:700; color:#000;">Deadline passed!</div>
-      `;
-      clearInterval(timerInterval);
-      return;
-    }
-
-    if (now < firstDeadline) {
-      const diff = firstDeadline - now;
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
+    // Render countdown with days only
+    function renderDaysCountdown() {
       container.innerHTML = `
         <h1>Submit the Treasure Hunt sentence!</h1>
         <p>This page becomes available in:</p>
         <div id="countdown" class="countdown" aria-live="polite" aria-label="Countdown timer">
           <div class="time-block">
-            <div class="time-value">${days}</div>
+            <div class="time-value" id="days">--</div>
             <div class="time-label">Days</div>
           </div>
         </div>
       `;
-    } else {
-      const diff = finalDeadline - now;
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
+    }
 
+    // Render countdown with hours and minutes only (no seconds)
+    function renderHoursMinutesCountdown() {
       container.innerHTML = `
-        <p>Time left to submit the Treasure Hunt answer:</p>
+        <h1>Submit the Treasure Hunt sentence!</h1>
+        <p>This page becomes available in:</p>
         <div id="countdown" class="countdown" aria-live="polite" aria-label="Countdown timer">
           <div class="time-block">
-            <div class="time-value">${hours.toString().padStart(2, '0')}</div>
+            <div class="time-value" id="hours">--</div>
             <div class="time-label">Hours</div>
           </div>
           <div class="time-block">
-            <div class="time-value">${minutes.toString().padStart(2, '0')}</div>
+            <div class="time-value" id="minutes">--</div>
+            <div class="time-label">Minutes</div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Render countdown with hours, minutes, seconds + tally form
+    function renderAfterStart() {
+      container.innerHTML = `
+        <h1>Submit the Treasure Hunt sentence!</h1>
+        <p>Time left to submit the Treasure Hunt answer:</p>
+        <div id="countdown" class="countdown" aria-live="polite" aria-label="Countdown timer">
+          <div class="time-block">
+            <div id="hours" class="time-value">--</div>
+            <div class="time-label">Hours</div>
+          </div>
+          <div class="time-block">
+            <div id="minutes" class="time-value">--</div>
             <div class="time-label">Minutes</div>
           </div>
           <div class="time-block">
-            <div class="time-value">${seconds.toString().padStart(2, '0')}</div>
+            <div id="seconds" class="time-value">--</div>
             <div class="time-label">Seconds</div>
           </div>
         </div>
-
-        <iframe data-tally-src="https://tally.so/embed/3yppO0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        <iframe
+          data-tally-src="https://tally.so/embed/3yppO0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
           loading="lazy" width="100%" height="100" frameborder="0" marginheight="0" marginwidth="0"
           title="BT Summer Together - Treasure Hunt submission"></iframe>
-        <script>
-          var d=document,w="https://tally.so/widgets/embed.js",v=function(){
-            if("undefined"!=typeof Tally) Tally.loadEmbeds();
-            else d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){
-              e.src=e.dataset.tallySrc;
-            });
-          };
-          if("undefined"!=typeof Tally) v();
-          else if(d.querySelector('script[src="'+w+'"]')==null){
-            var s=d.createElement("script");
-            s.src=w;
-            s.onload=v;
-            s.onerror=v;
-            d.body.appendChild(s);
-          }
-        </script>
+      `;
+      loadTallyScript();
+    }
+
+    function renderDeadlinePassed() {
+      container.innerHTML = `
+        <h1>Submit the Treasure Hunt sentence!</h1>
+        <div style="font-size:2em; font-weight:700; color:#000;">Deadline passed!</div>
       `;
     }
-  }
 
-  const timerInterval = setInterval(updateCountdown, 1000);
-  updateCountdown();
-</script>
+    function loadTallyScript() {
+      if (window.Tally) {
+        Tally.loadEmbeds();
+      } else if (!document.querySelector('script[src="https://tally.so/widgets/embed.js"]')) {
+        const script = document.createElement('script');
+        script.src = 'https://tally.so/widgets/embed.js';
+        script.onload = () => Tally.loadEmbeds();
+        document.body.appendChild(script);
+      }
+    }
 
+    let currentPhase = '';
 
+    function updateCountdown() {
+      const now = new Date();
 
+      if (now >= finalDeadline) {
+        clearInterval(timerInterval);
+        renderDeadlinePassed();
+        return;
+      }
 
+      if (now < firstDeadline) {
+        // Time until firstDeadline
+        const diffMs = firstDeadline - now;
+
+        // More than 24 hours left: show days only
+        if (diffMs > 24 * 60 * 60 * 1000) {
+          if (currentPhase !== 'days') {
+            renderDaysCountdown();
+            currentPhase = 'days';
+          }
+          const days = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+          const daysEl = document.getElementById('days');
+          if (daysEl) daysEl.textContent = days;
+        } else {
+          // Less than or equal to 24 hours left: show hours + minutes (no seconds)
+          if (currentPhase !== 'hoursMinutes') {
+            renderHoursMinutesCountdown();
+            currentPhase = 'hoursMinutes';
+          }
+          const hours = Math.floor(diffMs / (1000 * 60 * 60));
+          const minutes = Math.floor((diffMs / (1000 * 60)) % 60);
+          const hoursEl = document.getElementById('hours');
+          const minutesEl = document.getElementById('minutes');
+          if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+          if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+        }
+      } else {
+        // After firstDeadline but before finalDeadline: show hours, minutes, seconds + tally
+        if (currentPhase !== 'afterStart') {
+          renderAfterStart();
+          currentPhase = 'afterStart';
+        }
+        const diffMs = finalDeadline - now;
+        const hours = Math.floor((diffMs / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diffMs / (1000 * 60)) % 60);
+        const seconds = Math.floor((diffMs / 1000) % 60);
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+        if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+        if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+        if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+      }
+    }
+
+    // Initial render depending on current time
+    const now = new Date();
+    if (now >= finalDeadline) {
+      renderDeadlinePassed();
+      currentPhase = 'deadlinePassed';
+    } else if (now >= firstDeadline) {
+      renderAfterStart();
+      currentPhase = 'afterStart';
+    } else {
+      // Decide days or hours+minutes
+      const diffMs = firstDeadline - now;
+      if (diffMs > 24 * 60 * 60 * 1000) {
+        renderDaysCountdown();
+        currentPhase = 'days';
+      } else {
+        renderHoursMinutesCountdown();
+        currentPhase = 'hoursMinutes';
+      }
+    }
+
+    const timerInterval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 </html>
