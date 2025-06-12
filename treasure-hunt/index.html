@@ -223,7 +223,6 @@
   <div class="container">
     <h1>Submit the Treasure Hunt sentence!</h1>
     
-  <!-- Remove me!  
     <p>This page becomes available in:</p>
     
     <div id="countdown" class="countdown" aria-live="polite" aria-label="Countdown timer">
@@ -235,9 +234,7 @@
     
     <br>
 
-  Remove me! -->
-
-      
+    <!--  
     <p>Time left to submit the Treasure Hunt answer:</p>
 
     <div id="countdown" class="countdown" aria-live="polite" aria-label="Countdown timer">
@@ -257,7 +254,8 @@
 
     <iframe data-tally-src="https://tally.so/embed/3yppO0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="100" frameborder="0" marginheight="0" marginwidth="0" title="BT Summer Together - Treasure Hunt submission"></iframe>
     <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-    
+
+    -->
   </div>
 
   <script>
@@ -269,7 +267,7 @@
 
       if (diff <= 0) {
         // Countdown finished
-        document.getElementById('countdown').innerHTML = '<div style="font-size:2em; font-weight:700; color:#000;">The countdown has ended!</div>';
+        document.getElementById('countdown').innerHTML = '<div style="font-size:2em; font-weight:700; color:#000;">Deadline passed!</div>';
         clearInterval(timerInterval);
         return;
       }
