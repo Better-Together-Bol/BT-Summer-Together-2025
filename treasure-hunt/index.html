@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>BT Summer Together Landing Page</title>
+  <title>BT Summer Together Treasure Hunt</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
   <script async src="https://tally.so/widgets/embed.js"></script>
@@ -217,6 +217,14 @@
 <body>
 
   <!-- Full-width banner -->
+    <img src="../images/bt-banner.png" alt="Summer Together Banner" class="banner" />
+    
+    <div class="container">
+      <!-- JavaScript will dynamically populate this section based on the date -->
+    </div>
+
+  
+  <!-- 
   <img src="../images/bt-banner.png" alt="Summer Together Banner" class="banner" />
 
   
@@ -226,10 +234,6 @@
     <p>This page becomes available in:</p>
     
     <div id="countdown" class="countdown" aria-live="polite" aria-label="Countdown timer">
-      <div class="time-block">
-        <div id="days" class="time-value">--</div>
-        <div class="time-label">Days</div>
-      </div>
     </div>
     
     <br>
@@ -255,56 +259,94 @@
     <iframe data-tally-src="https://tally.so/embed/3yppO0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="100" frameborder="0" marginheight="0" marginwidth="0" title="BT Summer Together - Treasure Hunt submission"></iframe>
     <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
 
-    -->
+    
   </div>
+  -->
 
+  
   <script>
-  const targetDate = new Date('2025-06-13T07:00:00Z'); // 09:00 Amsterdam time (UTC+2)
+  const firstDeadline = new Date('2025-06-23T07:00:00Z'); // 09:00 Amsterdam
+  const finalDeadline = new Date('2025-06-24T00:00:00Z'); // 02:00 Amsterdam
+
+  const container = document.querySelector('.container');
 
   function updateCountdown() {
     const now = new Date();
-    const diff = targetDate - now;
-    const countdown = document.getElementById('countdown');
 
-    if (diff <= 0) {
-      countdown.innerHTML = '<div style="font-size:2em; font-weight:700; color:#000;">Deadline passed!</div>';
+    if (now >= finalDeadline) {
+      container.innerHTML = `
+        <h1>Submit the Treasure Hunt sentence!</h1>
+        <div style="font-size:2em; font-weight:700; color:#000;">Deadline passed!</div>
+      `;
       clearInterval(timerInterval);
       return;
     }
 
-    const oneDayMs = 1000 * 60 * 60 * 24;
+    if (now < firstDeadline) {
+      const diff = firstDeadline - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-    if (diff >= oneDayMs) {
-      const days = Math.ceil(diff / oneDayMs);
-      countdown.innerHTML = `
-        <div class="time-block">
-          <div class="time-value">${days}</div>
-          <div class="time-label">Days</div>
-        </div>`;
+      container.innerHTML = `
+        <h1>Submit the Treasure Hunt sentence!</h1>
+        <p>This page becomes available in:</p>
+        <div id="countdown" class="countdown" aria-live="polite" aria-label="Countdown timer">
+          <div class="time-block">
+            <div class="time-value">${days}</div>
+            <div class="time-label">Days</div>
+          </div>
+        </div>
+      `;
     } else {
+      const diff = finalDeadline - now;
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
       const seconds = Math.floor((diff / 1000) % 60);
 
-      countdown.innerHTML = `
-        <div class="time-block">
-          <div class="time-value">${hours.toString().padStart(2, '0')}</div>
-          <div class="time-label">Hours</div>
+      container.innerHTML = `
+        <p>Time left to submit the Treasure Hunt answer:</p>
+        <div id="countdown" class="countdown" aria-live="polite" aria-label="Countdown timer">
+          <div class="time-block">
+            <div class="time-value">${hours.toString().padStart(2, '0')}</div>
+            <div class="time-label">Hours</div>
+          </div>
+          <div class="time-block">
+            <div class="time-value">${minutes.toString().padStart(2, '0')}</div>
+            <div class="time-label">Minutes</div>
+          </div>
+          <div class="time-block">
+            <div class="time-value">${seconds.toString().padStart(2, '0')}</div>
+            <div class="time-label">Seconds</div>
+          </div>
         </div>
-        <div class="time-block">
-          <div class="time-value">${minutes.toString().padStart(2, '0')}</div>
-          <div class="time-label">Minutes</div>
-        </div>
-        <div class="time-block">
-          <div class="time-value">${seconds.toString().padStart(2, '0')}</div>
-          <div class="time-label">Seconds</div>
-        </div>`;
+
+        <iframe data-tally-src="https://tally.so/embed/3yppO0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy" width="100%" height="100" frameborder="0" marginheight="0" marginwidth="0"
+          title="BT Summer Together - Treasure Hunt submission"></iframe>
+        <script>
+          var d=document,w="https://tally.so/widgets/embed.js",v=function(){
+            if("undefined"!=typeof Tally) Tally.loadEmbeds();
+            else d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){
+              e.src=e.dataset.tallySrc;
+            });
+          };
+          if("undefined"!=typeof Tally) v();
+          else if(d.querySelector('script[src="'+w+'"]')==null){
+            var s=d.createElement("script");
+            s.src=w;
+            s.onload=v;
+            s.onerror=v;
+            d.body.appendChild(s);
+          }
+        </script>
+      `;
     }
   }
 
   const timerInterval = setInterval(updateCountdown, 1000);
   updateCountdown();
 </script>
+
+
 
 
 </body>
