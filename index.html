@@ -250,10 +250,6 @@
       </div>
     </div>
 
-    <!-- <div class="btn-group">
-      <a href="../downloads/Kickoff-Summer-Together.ics/" class="btn" aria-label="Add to my calendar">Add to my calendar</a>
-    </div> -->
-
     <div class="help-section" role="region" aria-label="Help section">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -286,7 +282,10 @@
 
       if (diff <= 0) {
         // Countdown finished
-        document.getElementById('countdown').innerHTML = '<div style="font-size:2em; font-weight:700; color:#000;">The countdown has ended!</div>';
+        document.getElementById('countdown').innerHTML = 
+          '<div style="text-align:center;">
+          <img src="../images/start-gif.gif" alt="Celebration GIF" style="max-width:100%; height:auto;">
+          </div>';
         clearInterval(timerInterval);
         return;
       }
