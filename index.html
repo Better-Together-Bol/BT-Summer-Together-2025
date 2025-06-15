@@ -275,32 +275,33 @@
 
   <script>
     const targetDate = new Date('2025-06-17T07:00:00Z'); // 09:00 Amsterdam time (UTC+2)
-
+  
     function updateCountdown() {
       const now = new Date();
       const diff = targetDate - now;
-
+  
       if (diff <= 0) {
-        // Countdown finished
-        document.getElementById('countdown').innerHTML = 
-          '<div style="text-align:center;">
-          <img src="../images/start-gif.gif" alt="Celebration GIF" style="max-width:100%; height:auto;">
-          </div>';
+        // Countdown finished — show the GIF
+        document.getElementById('countdown').innerHTML = `
+          <div style="text-align:center;">
+            <img src="../images/start-gif.gif" alt="Celebration GIF" style="max-width:100%; height:auto;">
+          </div>
+        `;
         clearInterval(timerInterval);
         return;
       }
-
+  
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
       const seconds = Math.floor((diff / 1000) % 60);
-
+  
       document.getElementById('days').textContent = days;
       document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
       document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
       document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
     }
-
+  
     const timerInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
   </script>
