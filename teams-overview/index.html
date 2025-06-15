@@ -29,6 +29,14 @@
     .table-wrapper {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+      -ms-overflow-style: -ms-autohiding-scrollbar; /* for IE/Edge */
+      scrollbar-width: thin; /* Firefox scrollbar */
+      max-width: 100%;
+    }
+    @media (max-width: 700px) {
+      .table-wrapper {
+        overflow-x: scroll;
+      }
     }
     table {
       width: 100%;
