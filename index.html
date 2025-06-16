@@ -141,24 +141,38 @@
       }
     }
     .help-section {
-      position: relative;
       background-color: #f9f9f9;
-      padding: 1.5em 1.5em 1.5em 3.5em; /* space for icon on left */
+      padding: 1em 1em;
       border-radius: 8px;
       color: #333;
       font-family: 'Inter', sans-serif;
       margin-bottom: 2em;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* center everything horizontally */
     }
-
-    .help-section svg {
-      position: absolute;
-      top: 1em;    /* top corner */
-      left: 1em;   /* left corner */
+    
+    .help-icon-row {
+      align-self: flex-start; /* align the svg left within the container */
+      margin: 0 0 0.5em 0; /* no top margin, small bottom margin */
+    }
+    
+    .help-icon-row svg {
       width: 24px;
       height: 24px;
-      fill: #3159ed; /* blue color */
+      fill: #3159ed;
+    display: block;
     }
-
+    
+    .help-content-row {
+      width: 100%;
+      text-align: center;
+    }
+    
     .help-header p {
       margin: 0 0 1em 0;
       font-weight: 600;
@@ -251,26 +265,31 @@
     </div>
 
     <div class="help-section" role="region" aria-label="Help section">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path fill-rule="evenodd" d="M11 11H9v-.148c0-.876.306-1.499 1-1.852.385-.195 1-.568 1-1a1.001 1.001 0 00-2 0H7c0-1.654 1.346-3 3-3s3 1 3 3-2 2.165-2 3zm-2 4h2v-2H9v2zm1-13a8 8 0 100 16 8 8 0 000-16z" />
-      </svg>
-
-      <div class="help-header">
-        <p>Got a question? Check out the FAQs</p>
+      <div class="help-icon-row">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path fill-rule="evenodd" d="M11 11H9v-.148c0-.876.306-1.499 1-1.852.385-.195 1-.568 1-1a1.001 1.001 0 00-2 0H7c0-1.654 1.346-3 3-3s3 1 3 3-2 2.165-2 3zm-2 4h2v-2H9v2zm1-13a8 8 0 100 16 8 8 0 000-16z" />
+        </svg>
       </div>
-      
-      <div class="btn-group">
-        <a href="faq" class="btn" aria-label="Read Frequently Asked Questions">Frequently asked questions</a>
-      </div>
-      
-      <p>Still need help? <a href="#tally-open=3ypEk4&tally-hide-title=1&tally-emoji-text=👋&tally-emoji-animation=wave&tally-auto-close=3000">Contact us!</a></p>
     
-     <!--
+      <div class="help-content-row">
+        <div class="help-header">
+          <p>Got a question? Check out the FAQs</p>
+        </div>
+        
+        <div class="btn-group">
+          <a href="faq" class="btn" aria-label="Read Frequently Asked Questions">Frequently asked questions</a>
+        </div>
+        
+        <p>Still need help? <a href="#tally-open=3ypEk4&tally-hide-title=1&tally-emoji-text=👋&tally-emoji-animation=wave&tally-auto-close=3000">Contact us!</a></p>
+      </div>
+    </div>
+
+         <!--
     <div class="help-header">
         <p>Quick links to other content</p>
     </div>
