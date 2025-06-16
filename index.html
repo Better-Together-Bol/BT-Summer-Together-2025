@@ -141,44 +141,49 @@
       }
     }
     .help-section {
+      position: relative;
       background-color: #f9f9f9;
-      padding: 1em 1em;
+      padding: 1em 1.5em 1em 3.5em; /* leave space on left for icon */
       border-radius: 8px;
       color: #333;
       font-family: 'Inter', sans-serif;
       margin-bottom: 2em;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* center everything horizontally */
     }
     
-    .help-icon-row {
-      align-self: flex-start; /* align the svg left within the container */
-      margin: 0 0 0.5em 0; /* no top margin, small bottom margin */
-    }
-    
-    .help-icon-row svg {
+    .help-section svg {
+      position: absolute;
+      top: 1em;
+      left: 1em;
       width: 24px;
       height: 24px;
       fill: #3159ed;
-    display: block;
+      margin: 0;
+      padding: 0;
+      display: block;
     }
     
-    .help-content-row {
-      width: 100%;
-      text-align: center;
+    /* Reduce top padding to shrink space above the icon */
+    .help-section {
+      padding-top: 0.7em;  /* adjust this value as needed */
     }
     
-    .help-header p {
-      margin: 0 0 1em 0;
-      font-weight: 600;
-      font-size: 1.2em;
+    /* Mobile responsive: revert padding and absolute positioning */
+    @media (max-width: 480px) {
+      .help-section {
+        padding-left: 3.5em; /* keep space for icon */
+        padding-top: 1em;    /* restore a bit of top padding */
+        border-radius: 0;
+        margin-left: calc(-50vw + 50%);
+        width: 100vw;
+        box-sizing: border-box;
+      }
+    
+      .help-section svg {
+        position: absolute;
+        top: 1em;
+        left: 1em;
+      }
     }
-
     .btn-group {
       display: flex;
       justify-content: center;
