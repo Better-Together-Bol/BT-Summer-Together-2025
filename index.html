@@ -240,9 +240,16 @@
 
   <!-- Main content -->
   <div class="container">
-    <h1>Welcome to Summer Together!</h1>
+    <!--<h1>Welcome to Summer Together!</h1>
     <p>Join <b>your team</b> and compete against your colleagues! Collect the most points and win the <b>grand prize</b>:</p>
     <h2>A team activity of choice!</h2>
+    <br>-->
+
+    <h1>The Summer Together competition is (almost) over!</h1>
+    <p>We hope you had a lot of fun competing in all the challenges! All teams are winners, but only one managed to gather the most points of them all.</p>
+    <h2>The winner is announced in ...</h2>
+    <!-- <h2>The Area Winner is ...</h2>
+    <h1>TEAM XX</h1> -->
     <br>
 
   <!-- <img src="images/grand-prize.png" alt="Summer Together Grand prize" class="grandprize" /> -->
@@ -313,7 +320,7 @@
       
 
   <script>
-    const targetDate = new Date('2025-06-17T07:00:00Z'); // 09:00 Amsterdam time (UTC+2)
+    const targetDate = new Date('2025-06-26T13:00:00Z'); // 09:00 Amsterdam time (UTC+2)
   
     function updateCountdown() {
       const now = new Date();
@@ -323,7 +330,7 @@
         // Countdown finished — show the GIF
         document.getElementById('countdown').innerHTML = `
           <div style="text-align:center;">
-            <img src="images/joe-rogan-ufc-rogan.gif" alt="Celebration GIF" style="max-width:100%; height:auto;"/>
+            <img src="images/joe-rogan-ufc-rogan.gif" alt="Surprise GIF" style="max-width:100%; height:auto;"/>
           </div>
         `;
         clearInterval(timerInterval);
